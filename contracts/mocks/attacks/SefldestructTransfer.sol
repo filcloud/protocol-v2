@@ -3,6 +3,7 @@ pragma solidity 0.6.12;
 
 contract SelfdestructTransfer {
   function destroyAndTransfer(address payable to) external payable {
-    selfdestruct(to);
+    // OVM: SELFDESTRUCT is not implemented in the OVM
+    // selfdestruct(to);
   }
 }

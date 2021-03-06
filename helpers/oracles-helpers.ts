@@ -71,10 +71,16 @@ export const setInitialAssetPricesInOracle = async (
   assetsAddresses: iAssetBase<tEthereumAddress>,
   priceOracleInstance: PriceOracle
 ) => {
+  console.log(`prices: ${Object.entries(prices)}`);
+  console.log(`assetsAddresses: ${Object.entries(assetsAddresses)}`);
   for (const [assetSymbol, price] of Object.entries(prices) as [string, string][]) {
     const assetAddressIndex = Object.keys(assetsAddresses).findIndex(
       (value) => value === assetSymbol
     );
+    if (assetAddressIndex === -1) {
+      console.warn(`${assetSymbol} not found`);
+      continue;
+    }
     const [, assetAddress] = (Object.entries(assetsAddresses) as [string, string][])[
       assetAddressIndex
     ];

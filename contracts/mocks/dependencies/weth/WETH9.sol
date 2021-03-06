@@ -25,6 +25,7 @@ contract WETH9 {
   event Deposit(address indexed dst, uint256 wad);
   event Withdrawal(address indexed src, uint256 wad);
 
+  uint256 public balance;
   mapping(address => uint256) public balanceOf;
   mapping(address => mapping(address => uint256)) public allowance;
 
@@ -45,7 +46,7 @@ contract WETH9 {
   }
 
   function totalSupply() public view returns (uint256) {
-    return address(this).balance;
+    return balance;
   }
 
   function approve(address guy, uint256 wad) public returns (bool) {

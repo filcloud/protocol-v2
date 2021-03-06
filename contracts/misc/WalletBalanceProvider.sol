@@ -43,7 +43,9 @@ contract WalletBalanceProvider {
     **/
   function balanceOf(address user, address token) public view returns (uint256) {
     if (token == MOCK_ETH_ADDRESS) {
-      return user.balance; // ETH balance
+      // TODO: OVM: BALANCE is not implemented in the OVM. (We have no native ETH -- use deposited WETH instead!)
+      // return user.balance; // ETH balance
+      return 0;
       // check if token is actually a contract
     } else if (token.isContract()) {
       return IERC20(token).balanceOf(user);

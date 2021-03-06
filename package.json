@@ -15,6 +15,7 @@
     "hardhat:main": "hardhat --network main",
     "hardhat:docker": "hardhat --network hardhatevm_docker",
     "compile": "SKIP_LOAD=true hardhat compile",
+    "compile:ovm": "SKIP_LOAD=true waffle .waffle-ovm.json",
     "console:fork": "MAINNET_FORK=true hardhat console",
     "test": "TS_NODE_TRANSPILE_ONLY=1 hardhat test ./test/*.spec.ts",
     "test-scenarios": "npx hardhat test test/__setup.spec.ts test/scenario.spec.ts",
@@ -71,6 +72,8 @@
     "prepublishOnly": "npm run compile"
   },
   "devDependencies": {
+    "@eth-optimism/ovm-toolchain": "^0.0.2-alpha.2",
+    "@eth-optimism/solc": "0.6.12-alpha.1",
     "@nomiclabs/buidler": "^1.4.7",
     "@nomiclabs/buidler-ethers": "2.0.0",
     "@nomiclabs/buidler-etherscan": "^2.1.0",
@@ -95,8 +98,8 @@
     "chai-bn": "^0.2.1",
     "dotenv": "^8.2.0",
     "eth-sig-util": "2.5.3",
-    "ethereum-waffle": "3.0.2",
-    "ethereumjs-util": "7.0.2",
+    "ethereum-waffle": "3.3.0",
+    "ethereumjs-util": "6.0.0",
     "ethers": "^5.0.19",
     "globby": "^11.0.1",
     "hardhat": "^2.0.8",
@@ -133,6 +136,7 @@
   ],
   "license": "AGPLv3",
   "dependencies": {
+    "@eth-optimism/plugins": "^0.0.17",
     "tmp-promise": "^3.0.2"
   },
   "keywords": [
